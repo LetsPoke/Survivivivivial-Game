@@ -10,7 +10,7 @@ public class LookScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked; //hides cursor ingame
+        //Cursor.lockState = CursorLockMode.Locked; //hides cursor ingame
     }
 
     // Update is called once per frame
