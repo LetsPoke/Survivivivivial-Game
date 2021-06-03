@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour //copied from https://www.youtube.com/watch?v=_QajrabyTJc&t=1202s
 {
@@ -15,9 +16,35 @@ public class PlayerMovement : MonoBehaviour //copied from https://www.youtube.co
     Vector3 velocity;
     bool isGrounded;
 
+    //clickMovment
+    private NavMeshAgent agent;
+
+    public float rotateSpeedMovement = 0.1f;
+    float rotateVelocity;
     // Update is called once per frame
     void Update()
     {
+        //movement
+        agent = gameObject.GetComponent<NavMeshAgent>();
+        //When pressing the left mouse button
+        if (Input.GetMouseButtonDown(1))
+        {
+            RaycastHit hit;
+
+            //Checking if the raycast shot hits something that uses the navmesh system
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
+            {
+                agent.SetDestination(hit.point);
+                
+                Quaternion rotationToLookAt = Quaternion.LookRotation(hit.point - transform.position);
+                float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y,
+                    rotationToLookAt.eulerAngles.y,
+                    ref rotateVelocity,
+                    rotateSpeedMovement * (Time.deltaTime * 5));
+
+                transform.eulerAngles = new Vector3(0, rotationY, 0);
+            }
+        }
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         //if(isGrounded && velocity.y < 0){
         //    velocity.y = -2f;
