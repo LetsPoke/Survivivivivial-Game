@@ -1,24 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LookScript : MonoBehaviour
 {
-    public Transform player;
+    [SerializeField] private Camera cam;
+    [SerializeField] private Transform target;
+    private Vector3 previousPosition;
 
-    private Vector3 cameraOffset;
 
-    [Range(0.01f, 1.0f)] public float smoothness = 0.5f;
-    // Start is called before the first frame update
     void Start()
     {
-        cameraOffset = transform.position - player.transform.position;
+        cam.transform.position = target.position;
+        cam.transform.Translate(new Vector3(0,0,-220));
+        
     }
-
     // Update is called once per frame
     void Update()
     {
-        Vector3 newPos = player.position + cameraOffset;
-        transform.position = Vector3.Slerp(transform.position, newPos, smoothness);
+        if (Input.GetMouseButtonDown(0))
+        {
+            previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
+            cam.transform.position = new Vector3(300,125,-28);
+            cam.transform.Translate(new Vector3(0,0,-200));
+        }
+
+        if (Input.GetMouseButton(0))
+        {
+            Vector3 direction = previousPosition - cam.ScreenToViewportPoint(Input.mousePosition);
+
+            cam.transform.position = target.position;
+        
+            cam.transform.Rotate(new Vector3(1,0,0), direction.y * 180);
+            cam.transform.Rotate(new Vector3(0,1,0), -direction.x * 180, Space.World);
+            cam.transform.Translate(new Vector3(0,0,-220));
+            
+            previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
+        }
+
+        
     }
 }
