@@ -8,7 +8,8 @@ public static class SaveDataManager
         SaveData sd = new SaveData();
         saveable.PopulateSaveData(sd);
 
-        if (FileManager.WriteToFile("SaveData01.dat", sd.ToJson()))
+        // TODO: variable file name for multiple save files
+        if (FileManager.WriteToFile("SaveData.dat", sd.ToJson()))
         {
             Debug.Log("Save successful");
         }
@@ -16,7 +17,8 @@ public static class SaveDataManager
     
     public static void LoadJsonData(ISaveable saveable)
     {
-        if (FileManager.LoadFromFile("SaveData01.dat", out var json))
+        // TODO: variable file name for multiple save files
+        if (FileManager.LoadFromFile("SaveData.dat", out var json))
         {
             SaveData sd = new SaveData();
             sd.LoadFromJson(json);

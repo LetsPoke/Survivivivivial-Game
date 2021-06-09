@@ -20,14 +20,14 @@ public class SaveData
         return JsonUtility.ToJson(this);
     }
 
-    public void LoadFromJson(string a_Json)
+    public void LoadFromJson(string json)
     {
-        JsonUtility.FromJsonOverwrite(a_Json, this);
+        JsonUtility.FromJsonOverwrite(json, this);
     }
 }
 
 public interface ISaveable
 {
-    void PopulateSaveData(SaveData a_SaveData);
-    void LoadFromSaveData(SaveData a_SaveData);
+    void PopulateSaveData(SaveData saveData);
+    void LoadFromSaveData(SaveData saveData);
 }
