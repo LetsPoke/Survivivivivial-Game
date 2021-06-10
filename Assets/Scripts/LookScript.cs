@@ -7,13 +7,14 @@ public class LookScript : MonoBehaviour
 {
     [SerializeField] private Camera cam;
     [SerializeField] private Transform target;
+    public float distance = -100;
     private Vector3 previousPosition;
 
 
     void Start()
     {
         cam.transform.position = target.position;
-        cam.transform.Translate(new Vector3(0,0,-220));
+        cam.transform.Translate(new Vector3(0,0,distance));
         
     }
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class LookScript : MonoBehaviour
         {
             previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
             cam.transform.position = new Vector3(300,125,-28);
-            cam.transform.Translate(new Vector3(0,0,-200));
+            cam.transform.Translate(new Vector3(0,0,distance));
         }
 
         if (Input.GetMouseButton(0))
@@ -34,7 +35,7 @@ public class LookScript : MonoBehaviour
         
             cam.transform.Rotate(new Vector3(1,0,0), direction.y * 180);
             cam.transform.Rotate(new Vector3(0,1,0), -direction.x * 180, Space.World);
-            cam.transform.Translate(new Vector3(0,0,-220));
+            cam.transform.Translate(new Vector3(0,0,distance));
             
             previousPosition = cam.ScreenToViewportPoint(Input.mousePosition);
         }
