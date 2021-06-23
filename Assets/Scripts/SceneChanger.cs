@@ -10,8 +10,10 @@ public class SceneChanger : MonoBehaviour
 
         if(SceneManager.GetActiveScene().name == "Scene_1"){
             SceneManager.LoadScene("AR_Scene"); 
+            Debug.Log("go ar");
         }else if(SceneManager.GetActiveScene().name == "AR_Scene"){
             SceneManager.LoadScene("Scene_1");
+            Debug.Log("go 1");
         }
     }
 }
