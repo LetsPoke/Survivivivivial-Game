@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.IO;
 using UnityEngine;
 
@@ -34,6 +35,34 @@ public static class FileManager
             Debug.LogError($"Failed to read from {fullPath} with exception {e}");
             result = "";
             return false;
+        }
+    }
+
+    public static bool[] CheckForSaveFiles()
+    {
+        var fullPath = Application.persistentDataPath;
+        try
+        {
+            bool[] existingFiles = new bool[]{false, false, false};
+            if (File.Exists(Path.Combine(Application.persistentDataPath, "SaveData1.dat")))
+            {
+                existingFiles[0] = true;
+            }
+            if (File.Exists(Path.Combine(Application.persistentDataPath, "SaveData2.dat")))
+            {
+                existingFiles[1] = true;
+            }
+            if (File.Exists(Path.Combine(Application.persistentDataPath, "SaveData3.dat")))
+            {
+                existingFiles[2] = true;
+            }
+
+            return existingFiles;
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"Failed with exception {e}");
+            throw;
         }
     }
 }
