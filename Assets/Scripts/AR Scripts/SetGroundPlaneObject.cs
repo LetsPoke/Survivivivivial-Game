@@ -8,7 +8,7 @@ public class SetGroundPlaneObject : MonoBehaviour
     public GameObject tree;
     public GameObject fire;
     
-    void Awake() {
+    void Start() {
         player.SetActive(true);
         tree.SetActive(false);
         fire.SetActive(false);
