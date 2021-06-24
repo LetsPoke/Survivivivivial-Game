@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 [System.Serializable]
 public class SaveData
@@ -18,6 +20,7 @@ public class SaveData
     public List<InGameObject> rocks = new List<InGameObject>();
     public List<InGameObject> terrain = new List<InGameObject>();
     public List<InGameObject> smallObjects = new List<InGameObject>();
+    public string dateTime;
 
     public string ToJson()
     {

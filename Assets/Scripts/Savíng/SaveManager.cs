@@ -1,25 +1,85 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class SaveManager : MonoBehaviour, ISaveable
 {
     public GameObject world;
     public GameObject player;
-    
+
+    private int saveStateNumber = 1;
+    private long counter = 0;
+    private bool startBool;
+
     private void Start()
     {
-        SaveDataManager.LoadJsonData(this);
+        var t = PlayerPrefs.GetInt("currentSave");
+        if (t>= 1 && t<=3)
+        {
+            saveStateNumber = PlayerPrefs.GetInt("currentSave");
+        }
+
+        bool[] files = SaveDataManager.ExistingFiles();
+        for (var i=0; i<files.Length;i++)
+        {
+            if (!files[i])
+            {
+                SaveProgress((i+1));
+            }
+        }
+
+        startBool = true;
+        LoadProgress(saveStateNumber);
+        startBool = false;
     }
 
     private void OnApplicationQuit()
     {
-        SaveDataManager.SaveJsonData(this);
+        PlayerPrefs.SetInt("currentSave", saveStateNumber);
+        SaveProgress(saveStateNumber);
+    }
+
+    public void LoadProgress(int save)
+    {
+        if (!startBool)
+        {
+            SaveProgress(saveStateNumber);
+        }
+        saveStateNumber = save;
+        SaveDataManager.LoadJsonData(this, saveStateNumber.ToString());
+    }
+
+    public void SaveProgress(int save)
+    {
+        saveStateNumber = save;
+        SaveDataManager.SaveJsonData(this, saveStateNumber.ToString());
+    }
+
+    private void FixedUpdate()
+    {
+        if (counter >= 60000)
+        {
+            counter = 0;
+            SaveProgress(saveStateNumber);
+        }
+        else
+        {
+            counter++;
+        }
+    }
+
+    public void TestReset()
+    {
+        PlayerPrefs.SetInt("currentSave", 1);
     }
 
     public void PopulateSaveData(SaveData saveData)
     {
+        string datetime = DateTime.Now.ToString("yyyy-MM-dd\\ HH:mm:ss");
+        saveData.dateTime = datetime;
+
         SaveData.InGameObject pInGameObject = new SaveData.InGameObject();
         pInGameObject.name = player.name;
         pInGameObject.position = player.transform.position;

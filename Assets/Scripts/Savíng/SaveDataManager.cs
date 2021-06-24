@@ -3,22 +3,22 @@ using UnityEngine;
 
 public static class SaveDataManager
 {
-    public static void SaveJsonData(ISaveable saveable)
+    public static void SaveJsonData(ISaveable saveable, string fileNumber)
     {
         SaveData sd = new SaveData();
         saveable.PopulateSaveData(sd);
 
         // TODO: variable file name for multiple save files
-        if (FileManager.WriteToFile("SaveData.dat", sd.ToJson()))
+        if (FileManager.WriteToFile("SaveData"+fileNumber+".dat", sd.ToJson()))
         {
             Debug.Log("Save successful");
         }
     }
     
-    public static void LoadJsonData(ISaveable saveable)
+    public static void LoadJsonData(ISaveable saveable, string fileNumber)
     {
         // TODO: variable file name for multiple save files
-        if (FileManager.LoadFromFile("SaveData.dat", out var json))
+        if (FileManager.LoadFromFile("SaveData"+fileNumber+".dat", out var json))
         {
             SaveData sd = new SaveData();
             sd.LoadFromJson(json);
@@ -27,5 +27,10 @@ public static class SaveDataManager
             
             Debug.Log("Load complete");
         }
+    }
+
+    public static bool[] ExistingFiles()
+    {
+        return FileManager.CheckForSaveFiles();
     }
 }
