@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 971a739777664d34591f9ba1a772f3f2, type: 3}
   m_Name: Fish
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1350596714202548, guid: 8cd95063179923e4094f56fbd31f4cbe, type: 3}
+  prefab: {fileID: 3369831509711412838, guid: 153438c8d37f83f4b87baeec0d1f9457, type: 3}
   type: 0
   description: 
   restoreFoodValue: 2
