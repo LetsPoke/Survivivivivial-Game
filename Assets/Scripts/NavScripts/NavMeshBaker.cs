@@ -8,7 +8,7 @@ public class NavMeshBaker : MonoBehaviour
     [SerializeField] 
     NavMeshSurface[] navMeshSurfaces;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         for(int i = 0; i < navMeshSurfaces.Length; i++){
             navMeshSurfaces[i].BuildNavMesh();
