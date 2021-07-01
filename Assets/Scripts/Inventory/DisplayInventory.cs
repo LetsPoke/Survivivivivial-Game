@@ -23,7 +23,7 @@ public class DisplayInventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //UpdateDisplay();
+        UpdateDisplay();
     }
 
     public void CreateDisplay()
@@ -33,9 +33,26 @@ public class DisplayInventory : MonoBehaviour
             var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
             obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
             obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
+            itemsDisplayed.Add(inventory.Container[i], obj);
         }
     }
 
+    public void UpdateDisplay(){
+        for (int i = 0; i < inventory.Container.Count; i++)
+        {
+            if (itemsDisplayed.ContainsKey(inventory.Container[i]))
+            {
+                itemsDisplayed[inventory.Container[i]].GetComponentInChildren<TextMeshPro>().text = inventory.Container[i].amount.ToString("n0");
+            }
+            else
+            {
+                var obj = Instantiate(inventory.Container[i].item.prefab, Vector3.zero, Quaternion.identity, transform);
+                obj.GetComponent<RectTransform>().localPosition = GetPosition(i);
+                obj.GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
+                itemsDisplayed.Add(inventory.Container[i], obj);
+            }
+        }
+    }
     public Vector3 GetPosition(int i)
     {
         return new Vector3(X_START + (X_SPACE_BETWEEN_ITEM * (i % NUMBER_OF_COLUMN)), Y_START + (-Y_SPACE_BETWEEN_ITEMS * (i / NUMBER_OF_COLUMN)), 0f);
