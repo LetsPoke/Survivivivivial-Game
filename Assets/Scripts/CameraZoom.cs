@@ -1,15 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 //Source: https://pressstart.vip/tutorials/2018/07/12/44/pan--zoom.html
+
 public class CameraZoom : MonoBehaviour
 {
     public float zoomOutMin = 1;
     public float zoomOutMax = 9;
-    // Start is called before the first frame update
+    [SerializeField] private Camera cam;
+    [SerializeField] private Transform target;
+    public float distance = -100;
+    private Vector3 previousPosition;
+
+
     void Start()
     {
-        
+        cam.transform.position = target.position;
+        cam.transform.Translate(new Vector3(0,0,distance));
     }
 
     // Update is called once per frame
@@ -29,8 +37,26 @@ public class CameraZoom : MonoBehaviour
             float difference = currentMagnitude - prevMagnitude;
 
             zoom(difference * 0.01f);
+
+
+            //rotate teil
+            Vector3 direction = previousPosition - cam.ScreenToViewportPoint(touchZeroPrevPos);
+           
+            cam.transform.position = target.position;
+        
+            cam.transform.Rotate(new Vector3(1,0,0), direction.y * 180);
+            cam.transform.Rotate(new Vector3(0,1,0), -direction.x * 180, Space.World);
+            cam.transform.Translate(new Vector3(0,0,distance));
+
+            previousPosition = cam.ScreenToViewportPoint(touchZeroPrevPos);
+            
+        }else{
+            cam.transform.position = target.position;
+            cam.transform.Translate(new Vector3(0,0,distance));
         }
-            zoom(Input.GetAxis("Mouse ScrollWheel"));
+        zoom(Input.GetAxis("Mouse ScrollWheel"));
+
+            
     }
 
     void zoom(float increment)

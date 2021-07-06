@@ -9,11 +9,11 @@ public class SceneChanger : MonoBehaviour
     
     public void LoadScene(){ 
 
-        if(SceneManager.GetActiveScene().name == "Scene_1"){
+        if(SceneManager.GetActiveScene().name == "Spielwelt"){
             SceneManager.LoadScene("AR_Scene"); 
             Debug.Log("go ar");
         }else if(SceneManager.GetActiveScene().name == "AR_Scene"){
-            SceneManager.LoadScene("Scene_1");
+            SceneManager.LoadScene("Spielwelt");
             Debug.Log("go 1");
         }
     }

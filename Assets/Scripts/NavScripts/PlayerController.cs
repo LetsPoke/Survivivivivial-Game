@@ -26,9 +26,9 @@ public class PlayerController : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 100, movementMask)){
+            if (Physics.Raycast(ray, out hit, 1000, movementMask)){
 
-                Debug.Log("We hit " + hit.collider.name + " " + hit.point);
+                //Debug.Log("We hit " + hit.collider.name + " " + hit.point);
 
                 //Move our player to what we hit
                 motor.MoveToPoint(hit.point);
