@@ -61,7 +61,7 @@ public class PlayerManager : MonoBehaviour
                 hunger--;
             }
             
-            Debug.Log("Hunger: "+hunger+" | "+"Thirst: "+thirst+" | "+"Health: "+health);
+            //Debug.Log("Hunger: "+hunger+" | "+"Thirst: "+thirst+" | "+"Health: "+health);
             SetHealth(health);
             SetHunger(hunger);
             SetThirst(thirst);

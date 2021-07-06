@@ -5,26 +5,34 @@ using UnityEngine;
 public class CollectItem : MonoBehaviour
 {
     public GameObject Trigger;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private bool inRange = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other) {
-        StartCoroutine(Collecting());
+        
+        if(other.tag == "Player"){
+            Debug.Log("inrange");
+            inRange = true;
+        }
+        
     }
 
-    private IEnumerator Collecting()
-    {
-        yield return new WaitForSeconds(2);
-        Trigger.SetActive(false);
+    private void OnTriggerExit(Collider other) {
+        if(other.tag == "Player"){
+        Debug.Log("not mehr inrange");
+        inRange = false;
+        }
     }
+
+    public void ChoppedyChopChop(){
+        if(inRange){
+            Debug.Log("Choppedy");
+            Trigger.SetActive(false);
+        }
+    }
+
+
+
+    
 
 }
