@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class PlayerManager : MonoBehaviour
 {
     public float health = 100, hunger = 100, thirst = 100;
+    public InventoryObject inventory;
     public Slider healthSlider;
     public Slider hungerSlider;
     public Slider thirstSlider;
@@ -19,6 +20,23 @@ public class PlayerManager : MonoBehaviour
         hungerSlider.maxValue = thirst;
         thirstSlider.maxValue = hunger;
         StartCoroutine(LoseHungerAndThirstOverTime());
+    }
+
+    
+
+    public void OnTriggerEnter(Collider other)
+    {
+        var item = other.GetComponent<Item>();
+        if (item)
+        {
+            inventory.AddItem(item.item, 1);
+            Destroy(other.gameObject);
+        }
+    }
+
+    private void OnApplicationQuit()
+    {
+        inventory.Container.Clear();
     }
 
     private IEnumerator LoseHungerAndThirstOverTime()

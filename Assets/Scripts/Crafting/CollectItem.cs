@@ -8,10 +8,6 @@ public class CollectItem : MonoBehaviour
     private bool inRange = false;
 
 
-
-    // private void Update() {
-    //     ChoppedyChopChop();
-    // }
     private void OnTriggerEnter(Collider other) {
         
         if(other.tag == "Player"){
