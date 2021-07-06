@@ -18,6 +18,13 @@ public class CollectItem : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
+        StartCoroutine(Collecting());
+    }
+
+    private IEnumerator Collecting()
+    {
+        yield return new WaitForSeconds(2);
         Trigger.SetActive(false);
     }
+
 }
