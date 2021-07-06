@@ -3,11 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
     public float health, hunger, thirst;
     public InventoryObject inventory;
+    public Slider healthSlider;
+    public Slider hungerSlider;
+    public Slider thirstSlider;
+
+    
     void Start()
     {
         StartCoroutine(LoseHungerAndThirstOverTime());
@@ -57,5 +63,23 @@ public class PlayerManager : MonoBehaviour
         }
 
         yield return null;
+    }
+
+    public void SetMaxHealth(int health)
+    {
+        healthSlider.maxValue = health;
+        healthSlider.value = health;
+    }
+
+    public void SetMaxHunger(int thirst)
+    {
+        hungerSlider.maxValue = thirst;
+        hungerSlider.value = thirst;
+    }
+
+    public void SetMaxThirst(int hunger)
+    {
+        thirstSlider.maxValue = hunger;
+        thirstSlider.value = hunger;
     }
 }
