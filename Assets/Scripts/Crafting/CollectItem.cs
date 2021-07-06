@@ -11,7 +11,7 @@ public class CollectItem : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         
         if(other.tag == "Player"){
-            Debug.Log("inrange");
+            //Debug.Log("inrange");
             inRange = true;
         }
         
@@ -19,14 +19,14 @@ public class CollectItem : MonoBehaviour
 
     private void OnTriggerExit(Collider other) {
         if(other.tag == "Player"){
-        Debug.Log("not mehr inrange");
+        //Debug.Log("not mehr inrange");
         inRange = false;
         }
     }
 
     public void ChoppedyChopChop(){
         if(inRange){
-            Debug.Log("Choppedy");
+            //Debug.Log("Choppedy");
             Trigger.SetActive(false);
         }
     }
