@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(PlayerMotor))]
 public class PlayerController : MonoBehaviour
@@ -26,7 +27,7 @@ public class PlayerController : MonoBehaviour
             Ray ray = cam.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit, 1000, movementMask)){
+            if (Physics.Raycast(ray, out hit, 1000, movementMask) && !EventSystem.current.IsPointerOverGameObject()){
 
                 //Debug.Log("We hit " + hit.collider.name + " " + hit.point);
 
