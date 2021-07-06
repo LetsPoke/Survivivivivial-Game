@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerManager : MonoBehaviour
 {
-    public float health, hunger, thirst;
+    public float health = 100, hunger = 100, thirst = 100;
     public InventoryObject inventory;
     public Slider healthSlider;
     public Slider hungerSlider;
@@ -16,6 +16,9 @@ public class PlayerManager : MonoBehaviour
     
     void Start()
     {
+        healthSlider.maxValue = health;
+        hungerSlider.maxValue = thirst;
+        thirstSlider.maxValue = hunger;
         StartCoroutine(LoseHungerAndThirstOverTime());
     }
 
@@ -46,7 +49,7 @@ public class PlayerManager : MonoBehaviour
             }
             else
             {
-                thirst--;
+                thirst-=2;
             }
             
             if (hunger == 0)
@@ -59,27 +62,27 @@ public class PlayerManager : MonoBehaviour
             }
             
             Debug.Log("Hunger: "+hunger+" | "+"Thirst: "+thirst+" | "+"Health: "+health);
-            yield return new WaitForSeconds(1);
+            SetHealth(health);
+            SetHunger(hunger);
+            SetThirst(thirst);
+            yield return new WaitForSeconds(5);
         }
 
         yield return null;
     }
 
-    public void SetMaxHealth(int health)
+    public void SetHealth(float health)
     {
-        healthSlider.maxValue = health;
         healthSlider.value = health;
     }
 
-    public void SetMaxHunger(int thirst)
+    public void SetHunger(float thirst)
     {
-        hungerSlider.maxValue = thirst;
         hungerSlider.value = thirst;
     }
 
-    public void SetMaxThirst(int hunger)
+    public void SetThirst(float hunger)
     {
-        thirstSlider.maxValue = hunger;
         thirstSlider.value = hunger;
     }
 }
