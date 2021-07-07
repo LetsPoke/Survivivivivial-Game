@@ -124,3 +124,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Trigger: {fileID: 163732562844357217}
+  invObj: {fileID: 11400000, guid: 34bf2a18013fd714a93989277d3954d6, type: 2}
+  item: {fileID: 11400000, guid: aceaa36448f4f4d4eb453437c6161371, type: 2}
