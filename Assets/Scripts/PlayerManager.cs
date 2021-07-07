@@ -17,8 +17,8 @@ public class PlayerManager : MonoBehaviour
     void Start()
     {
         healthSlider.maxValue = health;
-        hungerSlider.maxValue = thirst;
-        thirstSlider.maxValue = hunger;
+        thirstSlider.maxValue = thirst;
+        hungerSlider.maxValue = hunger;
         StartCoroutine(LoseHungerAndThirstOverTime());
     }
 
@@ -60,15 +60,22 @@ public class PlayerManager : MonoBehaviour
             {
                 hunger--;
             }
-            
-            //Debug.Log("Hunger: "+hunger+" | "+"Thirst: "+thirst+" | "+"Health: "+health);
             SetHealth(health);
             SetHunger(hunger);
             SetThirst(thirst);
+            //Debug.Log("Hunger: "+hunger+" | "+"Thirst: "+thirst+" | "+"Health: "+health);
+            
             yield return new WaitForSeconds(5);
         }
 
         yield return null;
+    }
+
+    private void FixedUpdate()
+    {
+        SetHealth(health);
+        SetHunger(hunger);
+        SetThirst(thirst);
     }
 
     public void SetHealth(float health)
@@ -76,13 +83,13 @@ public class PlayerManager : MonoBehaviour
         healthSlider.value = health;
     }
 
-    public void SetHunger(float thirst)
+    public void SetHunger(float hunger)
     {
-        hungerSlider.value = thirst;
+        hungerSlider.value = hunger;
     }
 
-    public void SetThirst(float hunger)
+    public void SetThirst(float thirst)
     {
-        thirstSlider.value = hunger;
+        thirstSlider.value = thirst;
     }
 }

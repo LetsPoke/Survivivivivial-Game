@@ -32,6 +32,7 @@ public class CollectItem : MonoBehaviour
             //Debug.Log("Choppedy");
             Trigger.SetActive(false);
             invObj.AddItem(item, 2);
+            inRange = false;
         }
     }
 
