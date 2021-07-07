@@ -16,5 +16,5 @@ MonoBehaviour:
   type: 0
   description: 
   restoreFoodValue: 20
-  restoreThirstValue: 0
+  restoreThirstValue: 50
   restoreLifeValue: 10
