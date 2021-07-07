@@ -64,12 +64,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d02733e2dc551a4e9af556da73ea06b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPos: {fileID: 0}
   objectToSpawn: {fileID: 1661447213762934, guid: d164dc5ec36c45348927cf1b510a6d21,
     type: 3}
   itemInInv: {fileID: 11400000, guid: 1f07fe8a4d8d32f4cb1a9fc7c0367cc7, type: 2}
   invObj: {fileID: 11400000, guid: 34bf2a18013fd714a93989277d3954d6, type: 2}
-  smallObjects: {fileID: 0}
 --- !u!114 &997917415841375107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4551eeb5d3567164489e38ea13b89696, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invObj: {fileID: 0}
+  invObj: {fileID: 11400000, guid: 34bf2a18013fd714a93989277d3954d6, type: 2}
   craftableItems:
   - {fileID: 11400000, guid: 1f07fe8a4d8d32f4cb1a9fc7c0367cc7, type: 2}
   - {fileID: 11400000, guid: a7f889b90e0058f41a1680330c8be7d1, type: 2}

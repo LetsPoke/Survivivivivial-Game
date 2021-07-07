@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c983133381e04cd45aade2426fa7bec4, type: 3}
   m_Name: stone
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 3369831509711412838, guid: 119950bbd668f134d99e3b4304ce834b, type: 3}
   type: 1
   description: 
