@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,16 +6,11 @@ using UnityEngine;
 public class Spawn : MonoBehaviour
 {
 
-    private Transform playerPos;
-    
-    public GameObject itemToSpawn;
+    public GameObject playerPos;
+    public GameObject objectToSpawn;
     public ItemObject itemInInv;
     public InventoryObject invObj;
-
-    private void Start()
-    {
-        playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-    }
+    public GameObject smallObjects;
 
     public void SpawnItem()
     {
@@ -29,7 +25,11 @@ public class Spawn : MonoBehaviour
 
         if (spawnable)
         {
-            Instantiate(itemToSpawn, playerPos.position, Quaternion.identity);
+            var fire = Instantiate(objectToSpawn, playerPos.transform.position, Quaternion.identity);
+            fire.transform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+            fire.transform.parent = smallObjects.transform;
+            
+            invObj.RemoveItem(itemInInv, 1);
         }
     }
 }
