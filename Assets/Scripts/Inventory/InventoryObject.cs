@@ -35,12 +35,28 @@ public class InventoryObject : ScriptableObject
                 Container[i].AddAmount(_amount);
                 break;
             }
+        }
+    }
 
-            if (Container[i].amount <= 0)
+    public void RemoveContainerEntryForIndex(int i)
+    {
+        Container.Remove(Container[i]);
+    }
+
+    public bool CheckForItem(ItemObject _item, int _amount)
+    {
+        for (int i = 0; i < Container.Count; i++)
+        {
+            if (Container[i].item == _item)
             {
-                Container.Remove(Container[i]);
+                if (Container[i].amount == _amount)
+                {
+                    return true;
+                }
             }
         }
+
+        return false;
     }
 }
 
