@@ -32,7 +32,7 @@ public class InventoryObject : ScriptableObject
         {
             if (Container[i].item == _item)
             {
-                Container[i].AddAmount(_amount);
+                Container[i].RemoveAmount(_amount);
                 break;
             }
         }
@@ -49,7 +49,7 @@ public class InventoryObject : ScriptableObject
         {
             if (Container[i].item == _item)
             {
-                if (Container[i].amount == _amount)
+                if (Container[i].amount >= _amount)
                 {
                     return true;
                 }

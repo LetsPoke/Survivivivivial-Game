@@ -43,6 +43,7 @@ public class DisplayInventory : MonoBehaviour
             if (itemsDisplayed.ContainsKey(inventory.Container[i]))
             {
                 itemsDisplayed[inventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
+                itemsDisplayed[inventory.Container[i]].GetComponent<RectTransform>().localPosition = GetPosition(i);
                 if (inventory.Container[i].amount <= 0)
                 {
                     Destroy(itemsDisplayed[inventory.Container[i]]);
