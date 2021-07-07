@@ -4225,10 +4225,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7479745042876934737, guid: ef8762120cdb7e343b776e30822ee03e,
+      - m_Target: {fileID: 997917415841375107, guid: ef8762120cdb7e343b776e30822ee03e,
           type: 3}
-        m_TargetAssemblyTypeName: Spawn, Assembly-CSharp
-        m_MethodName: SpawnItem
+        m_TargetAssemblyTypeName: Crafting, Assembly-CSharp
+        m_MethodName: CraftFire
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5236,7 +5236,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2463721238946131818}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 997917415841375107, guid: ef8762120cdb7e343b776e30822ee03e,
+          type: 3}
+        m_TargetAssemblyTypeName: Crafting, Assembly-CSharp
+        m_MethodName: Cook
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Transform, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2463721238946131820
 MonoBehaviour:
   m_ObjectHideFlags: 0

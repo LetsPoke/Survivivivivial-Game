@@ -18,9 +18,19 @@ public class Crafting : MonoBehaviour
         }
     }
 
-    public void Cook()
+    public void Cook(Transform player)
     {
-        if (invObj.CheckForItem(craftingItems[2], 1))
+        GameObject[] firePlaces = GameObject.FindGameObjectsWithTag("Fire");
+        var fireCheck = false;
+        for (var i = 0; i < firePlaces.Length; i++)
+        {
+            if (Vector3.Distance(player.position, firePlaces[i].transform.position) < 3)
+            {
+                fireCheck = true;
+                break;
+            }
+        }
+        if (invObj.CheckForItem(craftingItems[2], 1) && fireCheck)
         {
             invObj.RemoveItem(craftingItems[2], 1);
             invObj.AddItem(craftableItems[1], 1);
