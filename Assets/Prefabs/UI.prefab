@@ -6912,7 +6912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inventory: {fileID: 11400000, guid: 34bf2a18013fd714a93989277d3954d6, type: 2}
   X_START: -280
-  Y_START: 220
+  Y_START: 175
   X_SPACE_BETWEEN_ITEM: 250
   NUMBER_OF_COLUMN: 3
   Y_SPACE_BETWEEN_ITEMS: 250
