@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="Fire_Eckig" size="977.000000 1303.000000" />
+    <ImageTarget name="Tree_Eckig" size="947.000000 1255.000000" />
+    <ImageTarget name="Fire_gross" size="768.000000 1024.000000" />
+    <ImageTarget name="Tree_text" size="768.000000 1024.000000" />
+    <ImageTarget name="Tree_2" size="768.000000 1024.000000" />
+    <ImageTarget name="Tree_1" size="768.000000 1024.000000" />
+    <ImageTarget name="Stone_text" size="768.000000 1024.000000" />
+    <ImageTarget name="Rock_text" size="768.000000 1024.000000" />
+    <ImageTarget name="Fire_text" size="768.000000 1024.000000" />
+    <ImageTarget name="Fire_1" size="768.000000 1024.000000" />
+    <ImageTarget name="Fire_2" size="768.000000 1024.000000" />
     <ImageTarget name="Tree1" size="768.000000 1024.000000" />
     <ImageTarget name="Stone1" size="768.000000 1024.000000" />
     <ImageTarget name="Player2" size="768.000000 1024.000000" />
