@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8fc86b7c27a8994dbc4e3bdbe563505, type: 3}
-  m_Name: Shield
+  m_Script: {fileID: 11500000, guid: 971a739777664d34591f9ba1a772f3f2, type: 3}
+  m_Name: cooked_chickenLeg
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
-  type: 1
-  description: shieldy
-  atkBonus: 0
-  defenceBonus: 2
+  prefab: {fileID: 3369831509711412838, guid: 153438c8d37f83f4b87baeec0d1f9457, type: 3}
+  type: 0
+  description: 
+  restoreFoodValue: 20
+  restoreThirstValue: 0
+  restoreLifeValue: 10
