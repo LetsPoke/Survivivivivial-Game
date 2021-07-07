@@ -5,7 +5,8 @@ using UnityEngine;
 public class Crafting : MonoBehaviour
 {
     public InventoryObject invObj;
-    public ItemObject[] craftableItems;
+    public ItemObject[] craftableItems, craftingItems;
+    
 
     public void CraftItem(int indexOfItemToCraft)
     {
@@ -15,9 +16,19 @@ public class Crafting : MonoBehaviour
         switch (indexOfItemToCraft)
         {
             case 0:
-                
+                if (invObj.CheckForItem(craftingItems[0], 2) && invObj.CheckForItem(craftingItems[1], 1))
+                {
+                    invObj.RemoveItem(craftingItems[0], 2);
+                    invObj.RemoveItem(craftingItems[1], 1);
+                    invObj.AddItem(craftableItems[0],1);
+                }
                 break;
             case 1:
+                if (invObj.CheckForItem(craftingItems[2], 1))
+                {
+                    invObj.RemoveItem(craftingItems[2], 1);
+                    invObj.AddItem(craftableItems[1],1);
+                }
                 break;
         }
     }
