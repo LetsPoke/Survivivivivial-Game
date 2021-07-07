@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3630f0154a5889f4e92f352dd59290cb, type: 3}
   m_Name: fireplaceItem
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 3369831509711412838, guid: afdb572552b8f1348b8d1d0343baa850, type: 3}
   type: 2
   description: 

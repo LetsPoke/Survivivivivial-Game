@@ -88,5 +88,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a7f889b90e0058f41a1680330c8be7d1, type: 2}
   craftingItems:
   - {fileID: 11400000, guid: aceaa36448f4f4d4eb453437c6161371, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: e2046336a65ba874581b8ec007f535e0, type: 2}
   - {fileID: 11400000, guid: e85b85d11d92f644b94851211a69733f, type: 2}
