@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8850787673367592821}
   - component: {fileID: 8850787673367592820}
+  - component: {fileID: 7479745042876934737}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -50,3 +51,16 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   hungerSlider: {fileID: 0}
   thirstSlider: {fileID: 0}
+--- !u!114 &7479745042876934737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8850787673367592823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d02733e2dc551a4e9af556da73ea06b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 1661447213762934, guid: d164dc5ec36c45348927cf1b510a6d21, type: 3}
