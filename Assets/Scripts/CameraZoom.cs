@@ -7,10 +7,11 @@ using UnityEngine;
 public class CameraZoom : MonoBehaviour
 {
     public float zoomOutMin = 1;
-    public float zoomOutMax = 9;
+    public float zoomOutMax = 100;
     [SerializeField] private Camera cam;
     [SerializeField] private Transform target;
-    public float distance = -100;
+    public float distance = -50;
+    public float startRotation = 1;
     private Vector3 previousPosition;
 
 
@@ -18,6 +19,7 @@ public class CameraZoom : MonoBehaviour
     {
         cam.transform.position = target.position;
         cam.transform.Translate(new Vector3(0,0,distance));
+        cam.transform.Rotate(new Vector3(1,0,0), startRotation);
     }
 
     // Update is called once per frame
@@ -31,7 +33,7 @@ public class CameraZoom : MonoBehaviour
             Vector2 touchZeroPrevPos = touchZero.position - touchZero.deltaPosition;
             Vector2 touchOnePrevPos = touchOne.position - touchOne.deltaPosition;
 
-            float prevMagnitude = (touchZeroPrevPos - touchOnePrevPos).magnitude;
+            float prevMagnitude = (touchZeroPrevPos - touchOnePrevPos).magnitude; //vektorlänge
             float currentMagnitude = (touchZero.position - touchOne.position).magnitude;
 
             float difference = currentMagnitude - prevMagnitude;
