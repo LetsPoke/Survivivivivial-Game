@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(NavMeshAgent))]
 
@@ -17,7 +18,7 @@ public class PlayerMotor : MonoBehaviour
     }
 
     void Update(){
-        if(target != null){
+        if(target != null && !EventSystem.current.IsPointerOverGameObject()){
             agent.SetDestination(target.position);
             FaceTarget();
         }
