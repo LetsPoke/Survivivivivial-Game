@@ -42,7 +42,7 @@ public class DisplayInventory : MonoBehaviour
         {
             if (itemsDisplayed.ContainsKey(inventory.Container[i]))
             {
-                //itemsDisplayed[inventory.Container[i]].GetComponentInChildren<TextMeshPro>().text = inventory.Container[i].amount.ToString("n0");
+                itemsDisplayed[inventory.Container[i]].GetComponentInChildren<TextMeshProUGUI>().text = inventory.Container[i].amount.ToString("n0");
             }
             else
             {

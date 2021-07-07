@@ -15,4 +15,6 @@ MonoBehaviour:
   prefab: {fileID: 3369831509711412838, guid: 153438c8d37f83f4b87baeec0d1f9457, type: 3}
   type: 0
   description: 
-  restoreFoodValue: 2
+  restoreFoodValue: 5
+  restoreThirstValue: 0
+  restoreLifeValue: 0
