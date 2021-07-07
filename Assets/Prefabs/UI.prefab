@@ -4101,7 +4101,7 @@ GameObject:
   - component: {fileID: 2463721238747615414}
   - component: {fileID: 2463721238747615417}
   m_Layer: 5
-  m_Name: SleepButton
+  m_Name: SpawnButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4155,7 +4155,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bf693fa78bbee3c4088f8993ac382f69, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8c500d54ff99a5546a4409724f9b5579, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4208,7 +4208,20 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2463721238747615415}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7479745042876934737, guid: ef8762120cdb7e343b776e30822ee03e,
+          type: 3}
+        m_TargetAssemblyTypeName: Spawn, Assembly-CSharp
+        m_MethodName: SpawnItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2463721238747615417
 MonoBehaviour:
   m_ObjectHideFlags: 0

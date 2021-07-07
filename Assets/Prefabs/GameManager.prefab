@@ -63,4 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d02733e2dc551a4e9af556da73ea06b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 1661447213762934, guid: d164dc5ec36c45348927cf1b510a6d21, type: 3}
+  itemToSpawn: {fileID: 1661447213762934, guid: d164dc5ec36c45348927cf1b510a6d21,
+    type: 3}
+  itemInInv: {fileID: 11400000, guid: 1f07fe8a4d8d32f4cb1a9fc7c0367cc7, type: 2}
+  invObj: {fileID: 11400000, guid: 34bf2a18013fd714a93989277d3954d6, type: 2}
