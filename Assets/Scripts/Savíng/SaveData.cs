@@ -13,7 +13,8 @@ public class SaveData
     public Vector3 playerPos;
     public Quaternion playerRot;
 
-    public List<InventorySlot> inventory;
+    public List<ItemObject> items;
+    public List<int> amount;
 
     public string ToJson()
     {
