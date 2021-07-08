@@ -76,11 +76,6 @@ public class SaveManager : MonoBehaviour, ISaveable
         }
     }
 
-    public void TestReset()
-    {
-        PlayerPrefs.SetInt("currentSave", 1);
-    }
-
     public void PopulateSaveData(SaveData saveData)
     {
         var p = new List<Vector3>();

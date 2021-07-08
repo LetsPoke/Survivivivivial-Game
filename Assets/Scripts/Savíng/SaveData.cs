@@ -12,6 +12,7 @@ public class SaveData
 
     public Vector3 playerPos;
     public Quaternion playerRot;
+    public int[] playerValues = new int[3];
 
     public List<ItemObject> items;
     public List<int> amount;

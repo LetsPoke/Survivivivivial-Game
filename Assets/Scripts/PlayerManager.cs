@@ -12,6 +12,7 @@ public class PlayerManager : MonoBehaviour
     public Slider healthSlider;
     public Slider hungerSlider;
     public Slider thirstSlider;
+    public GameObject menu, saveMenu;
 
     
     void Start()
@@ -71,6 +72,11 @@ public class PlayerManager : MonoBehaviour
         SetHealth(health);
         SetHunger(hunger);
         SetThirst(thirst);
+    }
+
+    private void Update()
+    {
+        Time.timeScale = menu.activeSelf || saveMenu.activeSelf ? 0 : 1;
     }
 
     public void SetHealth(float health)
