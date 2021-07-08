@@ -13,6 +13,8 @@ public class SaveData
     public Vector3 playerPos;
     public Quaternion playerRot;
 
+    public List<InventorySlot> inventory;
+
     public string ToJson()
     {
         return JsonUtility.ToJson(this);

@@ -8,6 +8,7 @@ public class SaveManager : MonoBehaviour, ISaveable
 {
     public GameObject world;
     public GameObject player;
+    public InventoryObject invObj;
 
     private int saveStateNumber = 1;
     private long counter = 0;
@@ -98,6 +99,8 @@ public class SaveManager : MonoBehaviour, ISaveable
         saveData.playerPos = player.transform.position;
         saveData.playerRot = player.transform.rotation;
 
+        saveData.inventory = invObj.Container;
+
         /*string datetime = DateTime.Now.ToString("yyyy-MM-dd\\ HH:mm:ss");
         saveData.dateTime = datetime;
 
@@ -174,6 +177,8 @@ public class SaveManager : MonoBehaviour, ISaveable
 
         player.transform.position = saveData.playerPos;
         player.transform.rotation = saveData.playerRot;
+
+        invObj.Container = saveData.inventory;
 
         /*SaveData.InGameObject t = saveData.player;
         player.transform.position = t.position;

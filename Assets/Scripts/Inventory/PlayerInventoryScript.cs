@@ -15,9 +15,4 @@ public class PlayerInventoryScript : MonoBehaviour
             other.gameObject.SetActive(false);
         }
     }
-
-    private void OnApplicationQuit()
-    {
-        inventory.Container.Clear();
-    }
 }

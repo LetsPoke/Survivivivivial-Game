@@ -34,11 +34,6 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    private void OnApplicationQuit()
-    {
-        inventory.Container.Clear();
-    }
-
     private IEnumerator LoseHungerAndThirstOverTime()
     {
         while (health > 0)
