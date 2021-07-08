@@ -12,7 +12,9 @@ public class SaveData
 
     public Vector3 playerPos;
     public Quaternion playerRot;
-    public float[] playerValues = new float[3];
+    public float playerHealth;
+    public float playerHunger;
+    public float playerThirst;
 
     public List<ItemObject> items;
     public List<int> amount;

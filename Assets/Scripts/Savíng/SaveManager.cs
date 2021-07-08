@@ -19,7 +19,7 @@ public class SaveManager : MonoBehaviour, ISaveable
 
     private void Start()
     {
-        playerMan = player.GetComponent<PlayerManager>();
+        playerMan = GetComponent<PlayerManager>();
         worldObjects = world.GetComponentsInChildren<Transform>();
 
         var t = PlayerPrefs.GetInt("currentSave");
@@ -108,9 +108,9 @@ public class SaveManager : MonoBehaviour, ISaveable
         saveData.items = il;
         saveData.amount = al;
 
-        saveData.playerValues[0] = playerMan.health;
-        saveData.playerValues[1] = playerMan.hunger;
-        saveData.playerValues[2] = playerMan.thirst;
+        saveData.playerHealth = playerMan.health;
+        saveData.playerHunger = playerMan.hunger;
+        saveData.playerThirst = playerMan.thirst;
         
         invObj.Container.Clear();
     }
@@ -119,9 +119,9 @@ public class SaveManager : MonoBehaviour, ISaveable
     {
         invObj.Container.Clear();
         
-        playerMan.health = saveData.playerValues[0];
-        playerMan.hunger = saveData.playerValues[1];
-        playerMan.thirst = saveData.playerValues[2];
+        playerMan.health = saveData.playerHealth;
+        playerMan.hunger = saveData.playerHunger;
+        playerMan.thirst = saveData.playerThirst;
         
         var p = saveData.positionOfWorldObjects;
         var a = saveData.selfActiveOfWorldObjects;
