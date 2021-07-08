@@ -13,11 +13,13 @@ public class SaveManager : MonoBehaviour, ISaveable
     private int saveStateNumber = 1;
     private long counter = 0;
     private bool startBool;
+    private PlayerManager playerMan;
 
     private Transform[] worldObjects;
 
     private void Start()
     {
+        playerMan = player.GetComponent<PlayerManager>();
         worldObjects = world.GetComponentsInChildren<Transform>();
 
         var t = PlayerPrefs.GetInt("currentSave");
@@ -105,6 +107,10 @@ public class SaveManager : MonoBehaviour, ISaveable
 
         saveData.items = il;
         saveData.amount = al;
+
+        saveData.playerValues[0] = playerMan.health;
+        saveData.playerValues[1] = playerMan.hunger;
+        saveData.playerValues[2] = playerMan.thirst;
         
         invObj.Container.Clear();
     }
@@ -112,6 +118,10 @@ public class SaveManager : MonoBehaviour, ISaveable
     public void LoadFromSaveData(SaveData saveData)
     {
         invObj.Container.Clear();
+        
+        playerMan.health = saveData.playerValues[0];
+        playerMan.hunger = saveData.playerValues[1];
+        playerMan.thirst = saveData.playerValues[2];
         
         var p = saveData.positionOfWorldObjects;
         var a = saveData.selfActiveOfWorldObjects;
