@@ -30,7 +30,7 @@ public class PlayerManager : MonoBehaviour
         if (item)
         {
             inventory.AddItem(item.item, 1);
-            Destroy(other.gameObject);
+            other.gameObject.SetActive(false);
         }
     }
 

@@ -6,21 +6,12 @@ using UnityEngine.Serialization;
 [System.Serializable]
 public class SaveData
 {
-    [System.Serializable]
-    public struct InGameObject
-    {
-        public string name; //maybe replace with UUID or other ways to precisely determine which GameObject is meant
-        public Vector3 position;
-        public Quaternion rotation;
-        public bool isActive;
-    }
+    public List<Vector3> positionOfWorldObjects;
+    public List<Quaternion> rotationOfWorldObjects;
+    public List<bool> selfActiveOfWorldObjects;
 
-    public InGameObject player;
-    public List<InGameObject> trees = new List<InGameObject>();
-    public List<InGameObject> rocks = new List<InGameObject>();
-    public List<InGameObject> terrain = new List<InGameObject>();
-    public List<InGameObject> smallObjects = new List<InGameObject>();
-    public string dateTime;
+    public Vector3 playerPos;
+    public Quaternion playerRot;
 
     public string ToJson()
     {

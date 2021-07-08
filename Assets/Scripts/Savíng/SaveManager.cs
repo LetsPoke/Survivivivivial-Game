@@ -13,8 +13,12 @@ public class SaveManager : MonoBehaviour, ISaveable
     private long counter = 0;
     private bool startBool;
 
+    private Transform[] worldObjects;
+
     private void Start()
     {
+        worldObjects = world.GetComponentsInChildren<Transform>();
+        
         var t = PlayerPrefs.GetInt("currentSave");
         if (t>= 1 && t<=3)
         {
@@ -77,7 +81,24 @@ public class SaveManager : MonoBehaviour, ISaveable
 
     public void PopulateSaveData(SaveData saveData)
     {
-        string datetime = DateTime.Now.ToString("yyyy-MM-dd\\ HH:mm:ss");
+        var p = new List<Vector3>();
+        var a = new List<bool>();
+        var q = new List<Quaternion>();
+        foreach (var t in worldObjects)
+        {
+            p.Add(t.position);
+            a.Add(t.gameObject.activeSelf);
+            q.Add(t.rotation);
+        }
+
+        saveData.positionOfWorldObjects = p;
+        saveData.rotationOfWorldObjects = q;
+        saveData.selfActiveOfWorldObjects = a;
+
+        saveData.playerPos = player.transform.position;
+        saveData.playerRot = player.transform.rotation;
+
+        /*string datetime = DateTime.Now.ToString("yyyy-MM-dd\\ HH:mm:ss");
         saveData.dateTime = datetime;
 
         SaveData.InGameObject pInGameObject = new SaveData.InGameObject();
@@ -95,6 +116,18 @@ public class SaveManager : MonoBehaviour, ISaveable
         {
             for (int j = 0; j < world.transform.GetChild(i).childCount; j++)
             {
+                if (world.transform.GetChild(i).GetChild(j).childCount > 2)
+                {
+                    for (int k = 0; k < world.transform.GetChild(i).GetChild(j).childCount; k++)
+                    {
+                        var objK = world.transform.GetChild(i).GetChild(j).transform;
+                        var oK = objK.gameObject;
+                        SaveData.InGameObject igK = new SaveData.InGameObject
+                        {
+                            name = oK.name, position = objK.position, rotation = objK.rotation, isActive = oK.activeSelf
+                        };
+                    }
+                }
                 var obj = world.transform.GetChild(i).GetChild(j).transform;
                 var o = obj.gameObject;
                 SaveData.InGameObject ig = new SaveData.InGameObject
@@ -123,12 +156,26 @@ public class SaveManager : MonoBehaviour, ISaveable
         saveData.trees = trees;
         saveData.rocks = rocks;
         saveData.terrain = terrain;
-        saveData.smallObjects = smallObjects;
+        saveData.smallObjects = smallObjects;*/
     }
 
     public void LoadFromSaveData(SaveData saveData)
     {
-        SaveData.InGameObject t = saveData.player;
+        var p = saveData.positionOfWorldObjects;
+        var a = saveData.selfActiveOfWorldObjects;
+        var q = saveData.rotationOfWorldObjects;
+        
+        for (int i=0; i<worldObjects.Length; i++)
+        {
+            worldObjects[i].position = p[i];
+            worldObjects[i].rotation = q[i];
+            worldObjects[i].gameObject.SetActive(a[i]);
+        }
+
+        player.transform.position = saveData.playerPos;
+        player.transform.rotation = saveData.playerRot;
+
+        /*SaveData.InGameObject t = saveData.player;
         player.transform.position = t.position;
         player.transform.rotation = t.rotation;
         player.SetActive(t.isActive);
@@ -160,6 +207,6 @@ public class SaveManager : MonoBehaviour, ISaveable
                 obj.rotation = temp.rotation;
                 obj.gameObject.SetActive(temp.isActive);
             }
-        }
+        }*/
     }
 }
