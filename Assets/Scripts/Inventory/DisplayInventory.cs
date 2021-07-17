@@ -6,6 +6,7 @@ using TMPro;
 
 public class DisplayInventory : MonoBehaviour
 {
+    // source: https://youtu.be/_IqTeruf3-s
     public InventoryObject inventory;
     public int X_START;
     public int Y_START;
