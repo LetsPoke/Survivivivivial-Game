@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
+// This script is part of the "Persistent Data - How to Save Your Game States and Settings"
+// by UnityNow at this website:
+// https://resources.unity.com/unitenow/onlinesessions/persistent-data-how-to-save-your-game-states-and-settings
+// (alternative video link: https://youtu.be/uD7y4T4PVk0)
+
 [System.Serializable]
 public class SaveData
 {
